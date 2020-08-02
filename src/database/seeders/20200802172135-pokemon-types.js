@@ -18,5 +18,9 @@ module.exports = {
       })),
     );
   },
-  down: (queryInterface) => queryInterface.bulkDelete('pokemon_types', null, {}),
+  down: (queryInterface) => queryInterface.bulkDelete(
+    'pokemon_types',
+    null,
+    {},
+  ),
 };

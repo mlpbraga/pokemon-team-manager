@@ -7,10 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     image: DataTypes.STRING,
   }, {
     underscored: true,
-    paranoid: true,
   });
   pokemons.associate = (models) => {
-    pokemons.hasMany(models.pokemonTypes);
+    pokemons.hasMany(models.pokemon_types);
   };
   return pokemons;
 };

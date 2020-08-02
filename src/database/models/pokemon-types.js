@@ -3,10 +3,9 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.STRING,
   }, {
     underscored: true,
-    paranoid: true,
   });
   pokemonTypes.associate = (models) => {
-    pokemonTypes.belongsTo(models.pokemon);
+    // pokemonTypes.belongsTo(models.pokemon);
   };
   return pokemonTypes;
 };
