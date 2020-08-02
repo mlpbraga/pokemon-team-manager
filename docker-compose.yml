@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:12.2-alpine
     container_name: pokemon_postgres
-    # restart: always
+    # restart: alwayskamel
     ports:
       - 5432:5432
     command: postgres -c idle_in_transaction_session_timeout='1min'
@@ -17,6 +17,7 @@ services:
       - ./data:/var/lib/postgresql/data
     networks:
       - backend
+
 networks:
   backend:
     driver: bridge

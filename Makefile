@@ -12,7 +12,7 @@ db-rebuild:
 	docker-compose build
 
 db-migrate:
-	yarn typeorm migration:run
+	npx sequelize-cli db:migrate
 
-db-migrate-revert:
-	yarn typeorm migration:revert
+db-seed:
+	npx sequelize-cli db:seed:all
