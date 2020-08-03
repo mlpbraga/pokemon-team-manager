@@ -18,4 +18,9 @@ usersRouter.post(
   usersController.create,
 );
 
+usersRouter.get(
+  '/:id',
+  usersController.show,
+);
+
 module.exports = usersRouter;

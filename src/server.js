@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
+require('express-async-errors');
+
 const express = require('express');
 const cors = require('cors');
 const { errors } = require('celebrate');
-const { error } = require('winston');
 const { sequelize } = require('./database/models');
 const routes = require('./routes');
 
@@ -27,12 +28,11 @@ app.use((error, req, res) => {
 
   return res.status(500).json({
     status: 'error',
-    message: 'Internal Server Error',
+    message: error.message || 'Internal Server Error',
   });
 });
 
 const tesDbConnection = async () => {
-  console.log('se fude');
   try {
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');

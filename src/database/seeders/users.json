@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Maria Luísa Pereira Braga",
+      "email": "mluisapbraga@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "name": "Luiz Alexandre Alê Aloi",
+      "email": "alealoi@gmail.com",
+      "password": "4321"
+    }
+  ]
+}

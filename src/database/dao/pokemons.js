@@ -4,7 +4,7 @@ const { db } = require('../models');
 const { pokemons: Pokemons, pokemon_types: PokemonTypes } = db;
 
 const PokemonsDAO = {
-  readAllPokemons: async ({ name, type }) => {
+  read: async ({ name, type }) => {
     const where = {};
 
     if (name) {
