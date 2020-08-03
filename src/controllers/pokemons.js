@@ -3,7 +3,8 @@ const pokemonsResponseFormatter = require('../formatters/response/pokemons');
 
 const pokemonsController = {
   index: async (req, res) => {
-    const pokemons = await PokemonsDAO.readAllPokemons();
+    const params = req.query;
+    const pokemons = await PokemonsDAO.readAllPokemons(params);
     const response = pokemonsResponseFormatter.list(pokemons);
     return res.json(response);
   },

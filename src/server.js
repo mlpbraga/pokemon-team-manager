@@ -2,6 +2,8 @@
 const express = require('express');
 const cors = require('cors');
 const { errors } = require('celebrate');
+const { error } = require('winston');
+const { sequelize } = require('./database/models');
 const routes = require('./routes');
 
 const AppError = require('./commons/erros/AppError');
@@ -29,6 +31,18 @@ app.use((error, req, res) => {
   });
 });
 
+const tesDbConnection = async () => {
+  console.log('se fude');
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (err) {
+    console.error('Unable to connect to the database:', err);
+  }
+};
+
 app.listen(3004, () => {
-  console.log('🚀 Server started on port 3004!');
+  tesDbConnection()
+    .then(() => console.log('🚀 Server started on port 3004!'))
+    .catch((err) => console.log(err));
 });
