@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "54611b9f-d0f4-404e-b704-cd0351702c8e",
+		"name": "Pokemon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "error",
+					"item": [
+						{
+							"name": "missing name",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"mluisapbragaa@gmail.com\",\n    \"password\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3004/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3004",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "missing email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Maria Luísa Pereira Braga\",\n    \"password\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3004/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3004",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "missing password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Maria Luísa Pereira Braga\",\n    \"email\": \"mluisapbragaa@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3004/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3004",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Maria Luísa Pereira Braga\",\n    \"email\": \"mluisapbragaa@gmail.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read single user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "pokemons",
+			"item": [
+				{
+					"name": "list all pokemons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3004/pokemons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"pokemons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list pokemons filtered by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/pokemons?name=bul",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"pokemons"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "bul"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list pokemons filtered by type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/pokemons?type=bug",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"pokemons"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "bug"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list pokemons filtered by name and type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/pokemons?type=bug&name=we",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"pokemons"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "bug"
+								},
+								{
+									"key": "name",
+									"value": "we"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "teams",
+			"item": [
+				{
+					"name": "fail",
+					"item": [
+						{
+							"name": "pokemons exceding max size",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Poketop\",\n    \"trainerId\": 1,\n    \"pokemons\": [1,2,3,4,5]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3004/teams",
+									"host": [
+										"localhost"
+									],
+									"port": "3004",
+									"path": [
+										"teams"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "team name not attending to min size",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Poketop\",\n    \"trainerId\": 1,\n    \"pokemons\": [1,2,3,4,5]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3004/teams",
+									"host": [
+										"localhost"
+									],
+									"port": "3004",
+									"path": [
+										"teams"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Poketop\",\n    \"trainerId\": 1,\n    \"pokemons\": [1,2,3,4,5]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/teams",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"teams"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
