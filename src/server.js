@@ -18,7 +18,7 @@ app.use(routes);
 
 // error handlers
 app.use(errors({}, 400));
-app.use((error, req, res) => {
+app.use((error, req, res, next) => {
   if (error instanceof AppError) {
     return res.status(error.statusCode).json({
       status: 'error',

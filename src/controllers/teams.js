@@ -8,6 +8,14 @@ const teamsController = {
     const response = TeamsResponseFormatter.single(team);
     return res.json(response);
   },
+  show: async (req, res) => {
+    const { trainerId } = req.params;
+    let teams;
+    if (trainerId) teams = await TeamsDAO.readAll({ trainerId });
+    else teams = await TeamsDAO.readAll({});
+    const response = TeamsResponseFormatter.list(teams);
+    return res.json(response);
+  },
 };
 
 module.exports = teamsController;

@@ -9,8 +9,31 @@ const {
 } = db;
 
 const TeamsDAO = {
+  readAll: async ({ trainerId }) => {
+    const foundTeam = await Teams.findAll({
+      where: trainerId ? { trainerId } : {},
+      include: [{
+        model: TeamPokemons,
+        include: [{
+          model: Pokemons,
+          include: [{ model: PokemonTypes }],
+        }],
+      }],
+    });
+
+    return foundTeam;
+  },
   readId: async (id) => {
-    const foundTeam = await Teams.findByPk(id);
+    const foundTeam = await Teams.findOne({
+      where: { id },
+      include: [{
+        model: TeamPokemons,
+        include: [{
+          model: Pokemons,
+          include: [{ model: PokemonTypes }],
+        }],
+      }],
+    });
     return foundTeam;
   },
   create: async ({ name, trainerId, pokemons }) => {

@@ -18,9 +18,14 @@ teamsRouter.post(
   teamsController.create,
 );
 
-// teamsRouter.get(
-//   '/:id',
-//   teamsController.show,
-// );
+teamsRouter.get(
+  '/user/:trainerId',
+  teamsController.show,
+);
+
+teamsRouter.get(
+  '/',
+  teamsController.show,
+);
 
 module.exports = teamsRouter;
