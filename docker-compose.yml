@@ -1,26 +1,25 @@
 version: '3'
 
 services:
-  # api:
-  #   build:
-  #     context: .
-  #   image: pokemon/api
-  #   container_name: pokemon_api
-  #   volumes:
-  #     - .:/usr/src/app/
-  #   ports:
-  #     - 3004:3004
-  #   command: yarn start
-  #   environment:
-  #     NODE_ENV: ${NODE_ENV}
-  #   depends_on:
-  #     - postgres
-  #   networks:
-  #     - backend
+  api:
+    build:
+      context: .
+    image: pokemon/api
+    container_name: pokemon_api
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - 3004:3004
+    command: yarn dev:start # dev:start for development | start for production
+    environment:
+      NODE_ENV: ${NODE_ENV}
+    depends_on:
+      - postgres
+    networks:
+      - backend
   postgres:
     image: postgres:12.2-alpine
     container_name: pokemon_postgres
-    # restart: alwayskamel
     ports:
       - 5432:5432
     command: postgres -c idle_in_transaction_session_timeout='1min'

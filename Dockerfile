@@ -1,8 +1,8 @@
-FROM node:12.16.1-alpine3.9
+FROM node:10.22.0-alpine
 
 RUN \
   apk add --update --no-cache git openssh-client python3 \
-  && yarn add -g nodemon
+  && npm install -g nodemon
 
 WORKDIR /usr/src/app
 
