@@ -1,6 +1,5 @@
 const { hashSync } = require('bcryptjs');
 const { db } = require('../models');
-const AppError = require('../../commons/erros/AppError');
 
 const { users: Users } = db;
 

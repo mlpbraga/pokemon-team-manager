@@ -6,7 +6,9 @@ const PokemonsResponseFormatter = {
       const tempPokemon = _.omit(pokemon.dataValues, ['pokemon_types']);
       return {
         ...tempPokemon,
-        types: pokemon.types.map((type) => type.type),
+        types: pokemon.types
+          ? pokemon.types.map((type) => type.type)
+          : pokemon.pokemon_types.map((type) => type.type),
       };
     });
     return formattedResponse;
