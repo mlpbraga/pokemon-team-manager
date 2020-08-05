@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 require('express-async-errors');
-
 const express = require('express');
 const cors = require('cors');
 const { errors } = require('celebrate');

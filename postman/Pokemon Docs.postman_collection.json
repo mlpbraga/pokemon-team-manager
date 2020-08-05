@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "3ea8b482-4584-482b-b506-c33ac023b7e6",
+		"name": "Pokemon Docs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Maria Luísa Pereira Braga\",\n    \"email\": \"mluisapbragaa@gmail.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"users"
+							]
+						},
+						"description": "Recieves name, email and password to create a new user"
+					},
+					"response": []
+				},
+				{
+					"name": "read user info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/users/{{id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"users",
+								"{{id}}"
+							]
+						},
+						"description": "Reads user info to a given user id"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "pokemons",
+			"item": [
+				{
+					"name": "list all pokemons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3004/pokemons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"pokemons"
+							]
+						},
+						"description": "List all availiable pokemons"
+					},
+					"response": []
+				},
+				{
+					"name": "list pokemons filtered by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/pokemons?name={{name}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"pokemons"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{name}}"
+								}
+							]
+						},
+						"description": "List all availiable pokemons tha matches with a query by name"
+					},
+					"response": []
+				},
+				{
+					"name": "list pokemons filtered by type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/pokemons?type={{type}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"pokemons"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "{{type}}"
+								}
+							]
+						},
+						"description": "List all availiable pokemons tha matches with a query by type"
+					},
+					"response": []
+				},
+				{
+					"name": "list pokemons filtered by name and type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/pokemons?type={{name}}&name={{type}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"pokemons"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "{{name}}"
+								},
+								{
+									"key": "name",
+									"value": "{{type}}"
+								}
+							]
+						},
+						"description": "List all availiable pokemons tha matches with a query by name and type"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "teams",
+			"item": [
+				{
+					"name": "create teams",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Poketop\",\n    \"trainerId\": 1,\n    \"pokemons\": [2,3,4,5,6]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3004/teams",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"teams"
+							]
+						},
+						"description": "Recieves team name, trainer id and an array of pokemon ids to create a new pokemon team"
+					},
+					"response": []
+				},
+				{
+					"name": "list all teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/teams",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"teams"
+							]
+						},
+						"description": "List all teams"
+					},
+					"response": []
+				},
+				{
+					"name": "list all teams to an user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/teams/user/{{id}}",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"teams",
+								"user",
+								"{{id}}"
+							]
+						},
+						"description": "List all teams that belongs to a given user id"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

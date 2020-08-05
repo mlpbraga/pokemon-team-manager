@@ -7,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
   });
   teams.associate = (models) => {
     teams.hasMany(models.team_pokemons);
-    // teams.belongsTo(models.users);
   };
   return teams;
 };

@@ -1,4 +1,4 @@
-# pokemon-team-manager
+# Pokemon Manager API
 
 ## Dependências
 - Docker v19.03.12
@@ -27,3 +27,16 @@
 - `make logs`: exibe os logs dos containers relacionados à aplicação
 - `make db-logs`: exibe os logs do container do banco de dados
 - `make api-logs`: exibe os logs do container da API
+
+
+## Documentação das rotas
+https://documenter.getpostman.com/view/7762779/T1LFoATU?version=latest
+
+
+## Sobre o projeto
+
+O projeto consiste em uma API utilizando Node com o framework **express**, que foi escolhido por ser um framework não opinativo que contém as funções necessárias para eleborar uma API REST sem grandes complicações de estrutura do projeto.
+
+Para o armazenamento dos dados foi utilizado um banco relacional PostgreSQL, que foi escolhido para facilitar a modelagem das relações entre as entidades do sistema. A comuniação da API com o banco foi realizada com um ORM chamado Sequelize, que nos permite de forma simples gerenciar as tabelas do banco de dados e realizar consultas utilizando o Javascript ao invés de SQL puro.
+
+Ambos os serviçoes utilizados (Node e PostgreSQL) foram colocados em containers do Docker, isso foi feito para facilitar a execução do projeto em máquinas distintas sem que muitas depemdências e configurações adicionais fossem necessárias.

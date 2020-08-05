@@ -124,7 +124,7 @@
 					"response": []
 				},
 				{
-					"name": "read single user",
+					"name": "read user info",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -250,7 +250,7 @@
 			"name": "teams",
 			"item": [
 				{
-					"name": "fail",
+					"name": "error",
 					"item": [
 						{
 							"name": "pokemons exceding max size",
@@ -259,7 +259,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Poketop\",\n    \"trainerId\": 1,\n    \"pokemons\": [1,2,3,4,5]\n}",
+									"raw": "{\n    \"name\": \"Poketop\",\n    \"trainerId\": 1,\n    \"pokemons\": [1,2,3,4,5,6,7]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -286,7 +286,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Poketop\",\n    \"trainerId\": 1,\n    \"pokemons\": [1,2,3,4,5]\n}",
+									"raw": "{\n    \"name\": \"poke\",\n    \"trainerId\": 1,\n    \"pokemons\": [1,2,3,4,5]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -317,7 +317,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Poketop\",\n    \"trainerId\": 1,\n    \"pokemons\": [1,2,3,4,5]\n}",
+							"raw": "{\n    \"name\": \"Poketop\",\n    \"trainerId\": 1,\n    \"pokemons\": [2,3,4,5,6]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -336,9 +336,65 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "list all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/teams",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"teams"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "read user teams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3004/teams/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3004",
+							"path": [
+								"teams",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3004/health",
+					"host": [
+						"localhost"
+					],
+					"port": "3004",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
