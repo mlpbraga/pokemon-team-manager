@@ -7,8 +7,9 @@
 
 ## Como rodar localmente?
 
-1. Instale as dependências;
-2. Dentro do diretório, execute o comando `make build`;
+1. Instale as dependências
+2. Dentro do diretório, execute o comando `make build` para subir os containers da aplicação
+3. Para construir o seu banco de dados com os pokemons disponíveis, utilize o comando `make db-build`
 3. Acesse (pelo browser ou por ferramentes de requisições REST) o endpoint localhost:3004/health , é esperado que seja retornado um resultado como o JSON abaixo
 
 ```json

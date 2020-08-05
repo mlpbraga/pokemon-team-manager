@@ -13,7 +13,6 @@ build:
 	yarn;
 	docker-compose build;
 	docker-compose up -d;
-	docker-compose exec api npx sequelize-cli db:migrate;
 
 rebuild:
 	docker-compose down;
@@ -21,7 +20,6 @@ rebuild:
 	yarn;
 	docker-compose build;
 	docker-compose up -d;
-	docker-compose exec api npx sequelize-cli db:migrate;
 
 start:
 	docker-compose up -d;
@@ -35,3 +33,6 @@ db-migrate:
 db-seed:
 	docker-compose exec api npx sequelize-cli db:seed:all;
 
+db-build:
+	make db-migrate
+	make db-seed
