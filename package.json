@@ -1,6 +1,6 @@
 {
   "name": "api",
-  "description": "Callumas's Fashinon Marketplace API",
+  "description": "API",
   "version": "1.0.0",
   "license": "MIT",
   "main": "index.js",
